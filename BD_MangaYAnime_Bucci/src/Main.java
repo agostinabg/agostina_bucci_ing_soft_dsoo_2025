@@ -3,18 +3,20 @@ import java.util.Scanner;
 
 public class Main {
 
-	public static void main(String[]args) {
+	public static void main(String[]args) {qweqweqwe
+		qweqweqweqwe
 		
 		SerieDAO serieDAO = new SerieDAO();
         Scanner scanner = new Scanner(System.in);
         int opcion;
 
+					       qweqweqweqweqweqw
+
         do {
             System.out.println("1. Agregar Serie");
             System.out.println("2. Listar Series");
             System.out.println("3. Modificar Serie");
-            System.out.println("4. Eliminar Serie");
-            System.out.println("5. Salir");
+            System.out.println("4. Eliminar Seriqweqweqweqweqwewe
             System.out.print("Selecciona una opción: ");
             opcion = scanner.nextInt();
             scanner.nextLine(); // Limpiar el buffer
