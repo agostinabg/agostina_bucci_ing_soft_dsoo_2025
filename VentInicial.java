@@ -11,18 +11,18 @@ import javax.swing.JList;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.event.ListSelectionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import javax.swing.JScrollBar;
 
 public class VentInicial extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JList lista;
-	private DefaultListModel modelo;
-	private JScrollPane scrollLista;
+
 
 	/**
 	 * Launch the application.
@@ -44,12 +44,6 @@ public class VentInicial extends JFrame {
 	 * Create the frame.
 	 */
 	public VentInicial() {
-		addWindowListener(new WindowAdapter() {
-			@Override
-			public void windowOpened(WindowEvent e) {
-				
-			}
-		});
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -76,17 +70,22 @@ public class VentInicial extends JFrame {
 		lblCrearNuevaFicha.setBounds(12, 17, 111, 17);
 		contentPane.add(lblCrearNuevaFicha);
 		
+		/* Creo una lista para guardar los nombres de loe personajes*/
 		
-		JList lista = new JList();
-		lista.setBounds(12, 80, 420, 181);
-		DefaultListModel modelo = new DefaultListModel();
 		PersonajeDAO personajeDAO = new PersonajeDAO();
-		List<Personaje> personajes = personajeDAO.listarPersonajes();
-		for (Personaje p : personajes) {
-			modelo.addElement(p);
-        }
-		lista.setModel(modelo);
-		contentPane.add(lista);
-		
+	    List<Personaje> pers = personajeDAO.listarPersonajes();
+	    List<String> listaNombres = new ArrayList<>();
+	    for (Personaje p : pers) {
+	    	listaNombres.add(p.getNombre());
+	    }
+	    
+	    DefaultListModel<String> listModel = new DefaultListModel<>();
+	    for (String nom : listaNombres) {
+	    	listModel.addElement(nom);
+	    }
+	   
+	    JList list = new JList<>(listModel);
+		list.setBounds(12, 77, 420, 184);
+		contentPane.add(list);
 	}
 }
