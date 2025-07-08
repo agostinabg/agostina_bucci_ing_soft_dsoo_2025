@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login FiccionARQ</title>
+    <link rel="stylesheet" href="/estilos/estilos_login.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="login">Iniciar Sesión</button>
+            <button class="tab-btn" data-tab="register">Registrarse</button>
+        </div>
+        
+        <!-- Formulario de Login -->
+        <div class="form-container active" id="login-form-container">
+            <h2>Iniciar Sesión</h2>
+            <form id="login-form">
+                <input type="email" id="login-email" placeholder="Correo electrónico" required>
+                <input type="password" id="login-password" placeholder="Contraseña" required>
+                <button type="submit">Entrar</button>
+            </form>
+            <div id="login-error" class="error-message"></div>
+            <hr style="margin: 2rem 0;">
+            <button id="google-login" class="google-btn">Entrar con Google</button>
+        </div>
+
+        <!-- Formulario de Registro -->
+        <div class="form-container" id="register-form-container">
+            <h2>Crear Cuenta</h2>
+            <form id="register-form">
+                <input type="text" id="register-name" placeholder="Nombre completo" required>
+                <input type="email" id="register-email" placeholder="Correo electrónico" required>
+                <input type="password" id="register-password" placeholder="Contraseña" required>
+                <input type="password" id="register-confirm-password" placeholder="Confirmar contraseña" required>
+                <button type="submit">Registrarse</button>
+            </form>
+            <div id="register-error" class="error-message"></div>
+            <hr style="margin: 2rem 0;">
+            <button id="google-register" class="google-btn">Registrarse con Google</button>
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="/javascript/login.js"></script>
+</body>
+</html> 
