@@ -1,0 +1,164 @@
+*{
+   margin: 0px; 
+}
+
+header{
+    background-color: rgb(179, 86, 20);
+    padding: 5px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1{
+    color: white;
+    margin-left: 5px;
+}
+
+#div_header{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 2px;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    width: auto;
+}
+
+button{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.boton_ing{
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    border-style: none;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#ul_nav{
+    display: flex;
+    justify-content:flex-end;
+    list-style: none;
+    color: white;
+}
+
+.li_bold{
+    text-align: center;
+    margin: 8px;
+    font-weight: bold;
+}
+
+main{
+    background-color: rgb(243, 241, 239);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+#sec_intro{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    margin: 20px;
+}
+
+.div_intro{
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 35vw;
+}
+
+.texto_intro{
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+img{
+    width: 100%;
+}
+
+#btn_comenzar{
+    background-color: rgb(179, 86, 20);
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+    border-style: none;
+    border-radius: 10px;
+    padding: 10px;
+    width: fit-content;
+}
+
+.div_intro{
+    display: flex;
+}
+
+#sec_benef{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.tarjeta_vertical{
+    margin: 10px;
+    padding: 20px;
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    border-style: solid;
+    border-color: rgb(197, 197, 197);
+    border-width: 0.05px;
+}
+
+h3{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+p{
+    text-align: center;
+}
+
+footer{
+    background-color: rgb(179, 86, 20);
+    padding: 20px;
+    display:flex;
+    flex-direction: column;
+    
+}
+
+#ul_footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.li_footer{
+    color: white;
+    font-weight: bold;
+}
+
+h5{
+    color: white;
+    text-align: center;
+}
+
+@media (max-width: 800px){
+    nav{
+        display: none;
+    }
+
+    #div_nav{
+        display: none
+    }
+}
