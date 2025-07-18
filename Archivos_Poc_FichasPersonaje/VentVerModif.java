@@ -227,6 +227,12 @@ public class VentVerModif extends JFrame {
 		contentPane.add(bt_Modificar);
 		
 		JButton bt_Eliminar = new JButton("Eliminar");
+		bt_Eliminar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				PersonajeDAO personajeDAO = new PersonajeDAO();
+				personajeDAO.eliminarPersonaje(ind);
+			}
+		});
 		bt_Eliminar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		bt_Eliminar.setBounds(178, 512, 92, 27);
 		contentPane.add(bt_Eliminar);
