@@ -11,7 +11,7 @@ public class PersonajeDAO {
         	// Parámetros de conexión
             String url = "jdbc:mysql://localhost:3306/fichas";
             String user = "root";
-            String password = "******";
+            String password = "";
             connection = DriverManager.getConnection(url, user, password);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -34,6 +34,32 @@ public class PersonajeDAO {
             e.printStackTrace();
         }
     }
+    public List<String> buscarDatosPersonaje(int id) {
+    	/*public Personaje buscarDatosPersonaje(String nombre) {*/
+        List<String> personaje = new ArrayList<>();
+        String query = "SELECT * FROM personajes WHERE id = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(query)){
+        		stmt.setInt(1, id);
+        		ResultSet rs = stmt.executeQuery();
+        		while (rs.next()) {
+        		/*Personaje p = new Personaje(rs.getInt("id"),rs.getString("nombre"), rs.getInt("edad"), rs.getString("sexo"), rs.getString("ocupacion"), rs.getString("apariencia"), rs.getString("personalidad"), rs.getString("habilidades"), rs.getString("debilidades"));
+        		*/
+        		String edad =  Integer.toString(rs.getInt("edad"));
+            	personaje.add(rs.getString("nombre"));
+            	personaje.add(edad);
+            	personaje.add(rs.getString("sexo"));
+            	personaje.add(rs.getString("ocupacion"));
+            	personaje.add(rs.getString("apariencia"));
+            	personaje.add(rs.getString("personalidad"));
+            	personaje.add(rs.getString("habilidades"));
+            	personaje.add(rs.getString("debilidades"));}
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+		return personaje;
+    }
+   
+    
     
     public List<Personaje> listarPersonajes() {
         List<Personaje> personajes = new ArrayList<>();
@@ -49,6 +75,7 @@ public class PersonajeDAO {
         }
         return personajes;
     }
+    
     
     public void modificarPersonaje(Personaje personaje) {
         String query = "UPDATE personajes SET nombre = ?, edad = ?, sexo = ?, ocupacion = ?, apariencia = ?, personalidad = ?, habilidades = ?, debilidades = ? WHERE id = ?";
