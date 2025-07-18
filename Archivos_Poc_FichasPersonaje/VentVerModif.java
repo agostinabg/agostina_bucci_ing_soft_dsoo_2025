@@ -31,7 +31,7 @@ public class VentVerModif extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VentVerModif frame = new VentVerModif(null);
+					VentVerModif frame = new VentVerModif((Integer) null);
 					frame.setVisible(true);
 					
 				} catch (Exception e) {
@@ -55,7 +55,7 @@ public class VentVerModif extends JFrame {
 		contentPane.setLayout(null);
 		
 		PersonajeDAO personajeDAO = new PersonajeDAO();
-		List<String> personaje = personajeDAO.buscarDatosPersonaje(nombre);
+		List<String> personaje = personajeDAO.buscarDatosPersonaje(indice);
 		
 		
 		JLabel lblEdad = new JLabel("Edad:");
@@ -183,9 +183,9 @@ public class VentVerModif extends JFrame {
 				String habilidades = at_Habilidades.getText();
 				String debilidades = at_Debilidades.getText();
 				
-				Personaje nuevoPersonaje = new Personaje(0, nombre, edad, sexo, ocupacion, apariencia, personalidad, habilidades, debilidades);
+				Personaje personajeModificado = new Personaje(indice, nombre, edad, sexo, ocupacion, apariencia, personalidad, habilidades, debilidades);
 				PersonajeDAO personajeDAO = new PersonajeDAO();
-				personajeDAO.agregarPersonaje(nuevoPersonaje);
+				personajeDAO.modificarPersonaje(personajeModificado);
 			}
 		});
 		bt_Guardar.setBounds(324, 512, 92, 27);
@@ -216,6 +216,10 @@ public class VentVerModif extends JFrame {
 				ct_Ocupacion.setEditable(true);
 				rdbt_Hombre.setVisible(true);
 				rdbt_Mujer.setVisible(true);
+				at_Apariencia.setVisible(true);
+				at_Personalidad.setVisible(true);
+				at_Debilidades.setVisible(true);
+				at_Habilidades.setVisible(true);
 			}
 		});
 		bt_Modificar.setFont(new Font("Tahoma", Font.BOLD, 12));
