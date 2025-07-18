@@ -78,20 +78,33 @@ public class VentInicial extends JFrame {
 	    for (Personaje p : pers) {
 	    	listaNombres.add(p.getNombre());
 	    }
+	    List<Integer> listaIndices = new ArrayList<>();
+	    for (Personaje p : pers) {
+	    	listaIndices.add(p.getId());
+	    }
 	    
 	    DefaultListModel<String> listModel = new DefaultListModel<>();
 	    for (String nom : listaNombres) {
 	    	listModel.addElement(nom);
 	    }
+	    DefaultListModel<Integer> listModelInt = new DefaultListModel<>();
+	    for (Integer id : listaIndices) {
+	    	listModelInt.addElement(id);
+	    }
+		
+	    JList<Integer> listaIdPersonajes = new JList<>(listModelInt);
 		
 		JList<String> listaPersonajes = new JList<>(listModel);
 		listaPersonajes.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if (e.getClickCount() == 2) {
+					int ind = listaPersonajes.getSelectedIndex();
+					listaIdPersonajes.setSelectedIndex(ind);
+					int idPersonaje = listaIdPersonajes.getSelectedValue();
 					String nombre = listaPersonajes.getSelectedValue();
                     if (nombre != null) {
-        				VentVerModif fichaVista = new VentVerModif(nombre);
+        				VentVerModif fichaVista = new VentVerModif(idPersonaje);
         				fichaVista.setVisible(true);
                     }
 				}
