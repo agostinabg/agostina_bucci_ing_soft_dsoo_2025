@@ -1,0 +1,17 @@
+CREATE DATABASE fichas;
+
+USE DATABASE fichas;
+
+CREATE TABLE `personajes` (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  nombre varchar(30),
+  edad int(11),
+  sexo varchar(6),
+  ocupacion varchar(100),
+  apariencia varchar(250),
+  personalidad varchar(250),
+  habilidades varchar(250),
+  debilidades varchar(250),
+  PRIMARY KEY (id)
+)
+
